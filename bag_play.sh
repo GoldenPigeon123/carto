@@ -1,0 +1,1 @@
+ros2 bag play --loop ./../Downloads/bag/3d/ros2_3d.db3
