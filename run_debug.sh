@@ -1,1 +1,0 @@
-ros2 launch zxc_cartographer debug_backpack_3d.launch.py
