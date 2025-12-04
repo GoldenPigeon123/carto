@@ -40,4 +40,14 @@ POSE_GRAPH.optimization_problem.ceres_solver_options.max_num_iterations = 10
 POSE_GRAPH.constraint_builder.min_score = 0.62
 POSE_GRAPH.constraint_builder.global_localization_min_score = 0.66
 
+-- 新增：控制3D子图保留数量（丢弃过早历史子图）
+MAP_BUILDER_3D = {
+  submap_patches = {
+    num_submaps_to_keep = 5,  -- 仅保留最近5个子图，旧子图自动丢弃
+  },
+  global_slam = {
+    optimize_every_n_scans = 0,  -- 0=关闭全局优化（不建全局图），若需保留全局优化仅丢旧子图则设为>0（如3）
+  },
+}
+
 return options
