@@ -5,7 +5,7 @@ options = {
   map_builder = MAP_BUILDER,
   trajectory_builder = TRAJECTORY_BUILDER,
   map_frame = "map",
-  tracking_frame = "base_link",
+  tracking_frame = "imu_link",
   published_frame = "base_link",
   odom_frame = "odom",
   provide_odom_frame = true,
@@ -43,10 +43,10 @@ POSE_GRAPH.constraint_builder.global_localization_min_score = 0.66
 -- 新增：控制3D子图保留数量（丢弃过早历史子图）
 MAP_BUILDER_3D = {
   submap_patches = {
-    num_submaps_to_keep = 5,  -- 仅保留最近5个子图，旧子图自动丢弃
+    num_submaps_to_keep = 20,  -- 仅保留最近20个子图，旧子图自动丢弃
   },
   global_slam = {
-    optimize_every_n_scans = 0,  -- 0=关闭全局优化（不建全局图），若需保留全局优化仅丢旧子图则设为>0（如3）
+    optimize_every_n_scans = 0,  -- 0=关闭全局优化（不建全局图），若需保留全局优化仅丢旧子图则设为>0
   },
 }
 

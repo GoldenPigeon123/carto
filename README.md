@@ -4,11 +4,14 @@
 
 ```bash
 sudo apt update
+# cartographer安装
 sudo apt install -y \
   ros-humble-cartographer \
   ros-humble-cartographer-ros \
   ros-humble-cartographer-ros-msgs \
   ros-humble-cartographer-rviz
+# TF2安装
+sudo apt-get install ros-humble-tf2-ros ros-humble-tf2-geometry-msgs ros-humble-tf-transformations
 ```
 
 查看 Cartographer ROS 2 节点是否存在
@@ -60,7 +63,7 @@ git clone https://github.com/ros2/cartographer_ros.git
 ```
 
 编译代码自行找资料，这里不再赘述。
-如果发生重复宏定义错误则可以建议拉取中的cartographer子模块，并重新编译。
+如果发生重复宏定义错误则可以建议拉取fishros中的cartographer子模块，并重新编译。
 
 ```bash
 git clone --recursive https://github.com/fishros/fishbot.git -b humble
@@ -118,5 +121,18 @@ rviz2
 添加map，即可查看
 
 
-### 3 构建自己的实例
+## 3 构建自己的实例
 
+### 3.1 创建工作包
+
+```bash
+ros2 pkg create --build-type ament_python zxc_cartographer --dependencies rclpy cartoographer_ros
+```
+
+### 3.2 创建launch文件
+
+### 3.3 创建配置文件
+
+#### .yaml
+
+#### .lua
