@@ -123,7 +123,7 @@ rviz2
 
 ## 3 构建自己的实例
 
-### 3.1 创建工作包
+### 3.1 创建工作包zxc_cartographer
 
 ```bash
 ros2 pkg create --build-type ament_python zxc_cartographer --dependencies rclpy cartoographer_ros
@@ -135,4 +135,17 @@ ros2 pkg create --build-type ament_python zxc_cartographer --dependencies rclpy 
 
 #### .yaml
 
+作者太累了，不写了
+还是写吧
+```yaml
+  remappings:
+    - ["points2", "horizontal_laser_3d"]
+    - ["imu", "imu"]
+
+```
+这里 cartographer_ros 对于订阅的话题有严格的名称和类型要求，我们可以remapping来修改话题名称，类型无解。这里为了能跑官方的demo,图省事，直接用horizontal_laser_3d,imu话题，这样可以无缝衔接官方demo
+
 #### .lua
+
+作者太累了，不写了
+请阅读[cartographer官方参数文件](https://google-cartographer-ros.readthedocs.io/en/latest/configuration.html)
