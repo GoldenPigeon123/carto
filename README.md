@@ -149,3 +149,24 @@ ros2 pkg create --build-type ament_python zxc_cartographer --dependencies rclpy 
 
 作者太累了，不写了
 请阅读[cartographer官方参数文件](https://google-cartographer-ros.readthedocs.io/en/latest/configuration.html)
+
+友情提醒：
+
+```lua
+--  注意雷达频率
+TRAJECTORY_BUILDER_3D.num_accumulated_range_data = 3
+```
+
+对于
+```lua
+-- 新增：控制3D子图保留数量（丢弃过早历史子图）
+MAP_BUILDER_3D = {
+  submap_patches = {
+    num_submaps_to_keep = 20,  -- 仅保留最近20个子图，旧子图自动丢弃
+  },
+  global_slam = {
+    optimize_every_n_scans = 0,  -- 0=关闭全局优化（不建全局图），若需保留全局优化仅丢旧子图则设为>0
+  },
+}
+```
+作者也不知道对不对
